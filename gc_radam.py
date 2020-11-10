@@ -2,6 +2,7 @@
 #   https://arxiv.org/abs/1908.03265
 #   https://github.com/LiyuanLucasLiu/RAdam/blob/master/radam/radam.py
 #   https://pytorch.org/docs/stable/_modules/torch/optim/adamw.html#AdamW
+#   https://github.com/Yonghongwei/Gradient-Centralization/blob/master/algorithm-GC/algorithm/RAdam.py
 
 import math
 import torch

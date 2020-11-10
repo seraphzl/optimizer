@@ -1,3 +1,7 @@
+# Reference:
+#   https://pytorch.org/docs/stable/_modules/torch/optim/adamw.html#AdamW
+#   https://github.com/Yonghongwei/Gradient-Centralization/blob/master/algorithm-GC/algorithm/Adam.py
+
 import math
 import torch
 from torch.optim.optimizer import Optimizer

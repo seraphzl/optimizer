@@ -1,4 +1,5 @@
-import torch
+# Reference:
+# 	https://github.com/Yonghongwei/Gradient-Centralization/blob/master/algorithm-GC/algorithm/Centralization.py
 
 
 def centralized_gradient(x, use_gc=True, gc_conv_only=False):

@@ -1,3 +1,7 @@
+# Reference:
+#   https://pytorch.org/docs/stable/_modules/torch/optim/sgd.html#SGD
+#   https://github.com/Yonghongwei/Gradient-Centralization/blob/master/algorithm-GC/algorithm/SGD.py
+
 import torch
 from torch.optim.optimizer import Optimizer, required
 from gCentralization import centralized_gradient
@@ -13,7 +17,7 @@ class SGDgc(Optimizer):
         weight_decay=0,
         nesterov=False,
         use_gc=False,
-        gc_conv_only=False,
+        gc_conv_only=False
     ):
         if lr is not required and lr < 0.0:
             raise ValueError("Invalid learning rate: {}".format(lr))
@@ -29,7 +33,7 @@ class SGDgc(Optimizer):
             weight_decay=weight_decay,
             nesterov=nesterov,
             use_gc=use_gc,
-            gc_conv_only=gc_conv_only,
+            gc_conv_only=gc_conv_only
         )
         if nesterov and (momentum <= 0 or dampening != 0):
             raise ValueError("Nesterov momentum requires a momentum and zero dampening")
@@ -73,9 +77,7 @@ class SGDgc(Optimizer):
                         d_p = buf
 
                 # GC operation
-                d_p = centralized_gradient(
-                    d_p, use_gc=group["use_gc"], gc_conv_only=group["gc_conv_only"]
-                )
+                d_p = centralized_gradient(d_p, use_gc=group["use_gc"], gc_conv_only=group["gc_conv_only"])
 
                 p.add_(d_p, alpha=-group["lr"])
 
